@@ -51,30 +51,11 @@
 								</nav><!-- #site-navigation -->
 							</div>
 					</div>
-					<div class="d-block d-lg-none clear col-md-1 col-sm-3 col-3">
-              <div class="responsive-menu-wrap floatright">
-								<div class="slicknav_menu">
-									<a href="#" aria-haspopup="true" role="button" tabindex="0" class="slicknav_btn slicknav_collapsed" style="outline: none;">
-										<span class="slicknav_menutxt">MENU</span>
-										<span class="slicknav_icon">
-											<span class="slicknav_icon-bar"></span>
-											<span class="slicknav_icon-bar"></span>
-											<span class="slicknav_icon-bar"></span>
-										</span>
-									</a>
-									<ul class="slicknav_nav slicknav_hidden" aria-hidden="true" role="menu" style="display: none;">
-										<?php
-											wp_nav_menu( array(
-												'theme_location' => 'menu-1',
-												'menu_id'        => 'primary-menu',
-											) );
-										?>
-									</ul>
-                </div>
-						</div>
-          </div>
-          <div class="col-md-4 col-sm-9 col-9">
+					<div class="col-12 col-lg-6">
               <?php get_search_form() ?>
+          </div>
+					<div class="d-block d-lg-none clear col-md-1 col-sm-3 col-3">
+
           </div>
         </div>
 			</div>

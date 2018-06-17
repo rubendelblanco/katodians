@@ -79,6 +79,7 @@ if ( ! function_exists( 'katodians_setup' ) ) :
 			'flex-width'  => true,
 			'flex-height' => true,
 		) );
+		set_post_thumbnail_size( 150, 150 );
 	}
 endif;
 add_action( 'after_setup_theme', 'katodians_setup' );
@@ -120,14 +121,22 @@ function katodians_scripts() {
 	wp_enqueue_style( 'bootstrap-min', get_template_directory_uri() . '/css/bootstrap.min.css',false,'4.0','all');
 	wp_enqueue_style( 'katodians-style', get_stylesheet_uri() );
 	wp_enqueue_style( 'responsive', get_template_directory_uri() . '/css/responsive.css',false,'1.0','all');
+	wp_enqueue_style( 'slicknav', get_template_directory_uri() . '/css/slicknav.min.css',false,'1.0','all');
 
 	if (!is_front_page())
 		wp_enqueue_style( 'sidebar-right', get_template_directory_uri() . '/css/sidebar-content.css',false,'1.0','all');
 	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/fontawesome-all.min.css',false,'1.0','all');
 
+	wp_deregister_script( 'jquery' );
+    // Change the URL if you want to load a local copy of jQuery from your own server.
+  wp_register_script( 'jquery', "https://code.jquery.com/jquery-3.1.1.min.js", array(), '3.1.1' );
+	wp_enqueue_script( 'jquery' );
+	wp_enqueue_script( 'popper', get_template_directory_uri() . '/js/popper.min.js', array(), '1.0.0', true );
+	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '4.0.0', true );
 	wp_enqueue_script( 'katodians-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
 	wp_enqueue_script( 'katodians-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'katodians-plugins', get_template_directory_uri() . '/js/plugins.js', array(), '20151215', true );
+	wp_enqueue_script( 'katodians-scripts', get_template_directory_uri() . '/js/scripts.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
