@@ -700,28 +700,28 @@ header.post-content-single .entry-title, header.post-content-single .entry-meta{
     display: inline;
     margin-right: 5px;
 }
-.pagination-wrapper {
-    margin-top: 20px;
+.pagination {
+    margin-bottom: 20px;
 }
-.pagination-wrapper ul li {
-    display: inline-block;
-    margin: 0px 2px;
-}
-.pagination-wrapper ul li a,
-.pagination-wrapper ul li span {
-    height: 40px;
-    width: 40px;
-    display: block;
-    line-height: 40px;
-    background: #222;
-    color: #fff;
-    font-weight: 700;
-    border-radius: 50%;
-}
-.pagination-wrapper ul li a:hover,
-.pagination-wrapper ul li span {
+.pagination .page-numbers.current{
+    padding: 10px;
     background: #f47e00;
+    border: 1px solid #7c3e00;
+    color:#ffffff;
+    font-weight: bold;
 }
+.pagination a.page-numbers, .page-links a{
+    padding: 10px;
+    background: #f47e00;
+    font-weight: 400;
+}
+.pagination a.page-numbers:hover, .page-links a:hover{
+    padding: 10px;
+    background: #222222;
+    color: #ffffff;
+    border-radius: 40%;
+}
+
 /*------------------post-area end------------------*/
 
 /*------------------tanding-post-area end------------------*/
@@ -1560,6 +1560,12 @@ blockquote {
 
 .entry-content{
     padding-top: 4%;
+    padding-bottom: 4%;
+    border-bottom: 1px solid #EFEFEF;
+    margin-bottom: 1%;
+}
+.entry-content .page-links{
+  margin-left: 5px;
 }
 .blog-details-area .widget_recent_entries-img {
     margin-right: 20px;
@@ -1645,8 +1651,9 @@ blockquote {
     line-height: 38px;
     margin-bottom: 40px;
 }
-.blog-img img {
-    width: 100%;
+.blog-img img, figure {
+    max-width: 100%;
+    overflow:hidden
 }
 .blog-wrapper p {
     margin-bottom: 30px;
@@ -1684,7 +1691,25 @@ blockquote {
 .blog-wrapper ul.socil-media li a:hover{
     background: #f47e00;
 }
-
+.blog-wrapper img.alignleft, figure.alignleft{
+  float:left;
+  margin-right: 5px;
+}
+.blog-wrapper img.alignright, figure.alignright{
+  float:right;
+  margin-left: 5px;
+}
+.wp-caption-text{
+  font-style: italic;
+  border: 1px solid #b2b2b2;
+  border-radius: 0 0 5px 5px;
+  padding: 2px 5px 2px 5px;
+  background-color: #f8f8f8;
+  font-size: 10pt;
+}
+.wp-caption-text a{
+    text-decoration: underline;
+}
 ol {
     list-style: none;
 }

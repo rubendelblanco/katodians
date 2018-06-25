@@ -50,7 +50,10 @@ get_header(); ?>
 				</div>
 				<div class="row">
 					<div class="col-12">
-						<?php the_posts_navigation(); ?>
+						<?php the_posts_pagination( array( 'mid_size' => 2,
+					    'prev_text' => __( '<<', 'textdomain' ),
+					    'next_text' => __( '>>', 'textdomain' ),
+							'screen_reader_text' => ' ' ) ); ?>
 					</div>
 				</div>
 			</div>
