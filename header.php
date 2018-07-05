@@ -39,7 +39,7 @@
 		<div class="header-middle-area">
 			<div class="container">
         <div class="row">
-					<div class="col-md-8 col-sm-12 d-none d-lg-block">
+					<div class="col-12 d-none d-lg-block">
 							<div class="mainmenu">
 								<nav id="site-navigation" class="main-navigation">
 									<?php

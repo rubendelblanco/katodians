@@ -258,6 +258,9 @@ a#scrollUp:hover {
     color: #f47e00;
     text-shadow: 0px 2px 3px rgba(0, 0, 0, .1);
 }
+#primary-menu{
+    padding-top: 40px;
+}
 .mainmenu ul li {
     display: inline-block;
     margin-left: 25px;
@@ -269,7 +272,7 @@ a#scrollUp:hover {
 .mainmenu ul li a {
     font-size: 15px;
     font-weight: 700;
-    padding: 40px 0px;
+    padding: 0px 0px 10px;
     display: block;
     text-transform: uppercase;
 }
@@ -1557,7 +1560,12 @@ blockquote {
 /*=====================================================
                     blog-details page HERE
 =====================================================*/
-
+.entry-content-no-border{
+    padding-top: 4%;
+    padding-bottom: 5%;
+    margin-bottom: 1%;
+    margin-left: 1%;
+}
 .entry-content{
     padding-top: 4%;
     padding-bottom: 4%;

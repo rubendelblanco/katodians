@@ -30,7 +30,7 @@
 				endif; ?>
 			</header><!-- .entry-header -->
 
-			<div class="entry-content">
+			<div class="entry-content-no-border">
 				<?php
 					wp_link_pages( array(
 						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'katodians' ),
