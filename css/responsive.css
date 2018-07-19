@@ -24,7 +24,7 @@
 
 /* Normal desktop :992px. */
 
-@media (min-width: 992px) and (max-width: 1197px) {
+@media (min-width: 992px) and (max-width: 1365px) {
     .slicknav_menu{
       display:none;
     }
@@ -74,7 +74,7 @@
         font-size: 24px;
     }
     .post {
-        padding: 0px 50px;
+      /*  padding: 0px 50px;*/
     }
     .next-prev-style .owl-nav div {
         left: -30px;
