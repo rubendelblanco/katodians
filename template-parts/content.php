@@ -16,6 +16,9 @@
       </div>
 			<header class="post-content">
 				<?php
+				if ( is_sticky()):
+					echo '<div class="featured-sticky"><span>'.__('FEATURED').'</span></div>';
+				endif;
 				if ( is_singular() ) :
 					the_title( '<h1 class="entry-title">', '</h1>' );
 				else :

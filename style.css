@@ -727,6 +727,21 @@ header.post-content-single .entry-title, header.post-content-single .entry-meta{
 
 /*------------------post-area end------------------*/
 
+/*-----------------sticky post start---------------*/
+
+.featured-sticky{
+  margin-top: -15px;
+  width: 25%;
+}
+.featured-sticky span{
+  background-color: #B22222;
+  color: #ffffff;
+  font-weight: bold;
+  text-align: center;
+}
+
+/*------------------sticky post end----------------*/
+
 /*------------------tanding-post-area end------------------*/
 .tanding-post-area .featured-items {
     width: 100%;

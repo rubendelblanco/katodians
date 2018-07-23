@@ -29,11 +29,6 @@ get_header(); ?>
 				<div class="blog-wrapper">
 					<?php the_tags( '<i class="fas fa-tags"></i> ', ', ', '<br />' ); ?>
 				</div>
-				<div class="mt-3">
-						<?php
-							the_post_navigation();
-						?>
-				</div>
 			</div>
 			<div class="col-12 mt-5">
 				<?php

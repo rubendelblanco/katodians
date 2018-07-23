@@ -17,6 +17,9 @@ get_header(); ?>
 
 			<header class="page-header">
 				<?php
+					if ( is_sticky()):
+						echo '<div class="featured-sticky">'.__('FEATURED').'</div>';
+					endif;
 					the_archive_title( '<h1 class="page-title">', '</h1>' );
 					the_archive_description( '<div class="archive-description">', '</div>' );
 				?>
@@ -38,7 +41,7 @@ get_header(); ?>
 			the_posts_pagination( array( 'mid_size' => 2,
 				'prev_text' => __( '<<', 'textdomain' ),
 				'next_text' => __( '>>', 'textdomain' ),
-				'screen_reader_text' => ' ' ) ); 
+				'screen_reader_text' => ' ' ) );
 
 		else :
 

@@ -59,6 +59,10 @@ if ( ! function_exists( 'katodians_setup' ) ) :
 			'caption',
 		) );
 
+
+		//Add theme support for some post formats
+		add_theme_support( 'post-formats', array( 'aside', 'gallery', 'video' ) );
+
 		// Set up the WordPress core custom background feature.
 		add_theme_support( 'custom-background', apply_filters( 'katodians_custom_background_args', array(
 			'default-color' => 'ffffff',
