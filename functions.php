@@ -61,7 +61,7 @@ if ( ! function_exists( 'katodians_setup' ) ) :
 
 
 		//Add theme support for some post formats
-		add_theme_support( 'post-formats', array( 'aside', 'gallery', 'video' ) );
+		add_theme_support( 'post-formats', array( 'aside', 'gallery', 'video', 'link' ) );
 
 		// Set up the WordPress core custom background feature.
 		add_theme_support( 'custom-background', apply_filters( 'katodians_custom_background_args', array(
@@ -145,6 +145,9 @@ function katodians_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	//add thickbox for images
+	//add_thickbox();
 }
 add_action( 'wp_enqueue_scripts', 'katodians_scripts' );
 
