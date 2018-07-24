@@ -148,6 +148,8 @@ function katodians_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'katodians_scripts' );
 
+
+
 /**
  * Implement the Custom Header feature.
  */
@@ -167,6 +169,11 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+
+/**
+ * Related posts functions.
+ */
+require get_template_directory() . '/inc/related-posts.php';
 
 /**
  * Load Jetpack compatibility file.
