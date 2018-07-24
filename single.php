@@ -31,6 +31,12 @@ get_header(); ?>
 				</div>
 			</div>
 			<div class="col-12 mt-5">
+				<div class="relatedposts">
+					<h3>Related posts</h3>
+					<?php get_related_posts(); ?>
+				</div>
+			</div>
+			<div class="col-12 mt-5">
 				<?php
 					// If comments are open or we have at least one comment, load up the comment template.
 					if ( comments_open() || get_comments_number() ) :
