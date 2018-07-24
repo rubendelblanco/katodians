@@ -31,10 +31,10 @@ get_header(); ?>
 				</div>
 			</div>
 			<div class="col-12 mt-5">
-				<div class="relatedposts">
 					<h3>Related posts</h3>
+					<div class="row">
 					<?php get_related_posts(); ?>
-				</div>
+					</div>
 			</div>
 			<div class="col-12 mt-5">
 				<?php
