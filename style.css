@@ -953,12 +953,41 @@ p img.alignright, p img.alignleft {margin-top:0;}
 
 /*----------------related posts start ------------------*/
 
-.relatedposts {max-width: 640px; margin: 0 0 20px 0; float: left; font-size: 12px;}
-.relatedposts h3 {font-size: 20px; margin: 0 0 5px 0; }
-.relatedthumb {margin: 0 1px 0 1px; float: left; }
-.relatedthumb img {margin: 0 0 3px 0; padding: 0;}
-.relatedthumb a {color :#333; text-decoration: none; display:block; padding: 4px; width: 150px;}
-.relatedthumb a:hover {background-color: #ddd; color: #000;}
+.relatedposts {
+  max-width: 640px;
+  margin: 0 0 20px 0;
+  float: left;
+  font-size: 12px;
+}
+.relatedposts h3 {
+  font-size: 20px;
+  margin: 0 0 5px 0;
+}
+.relatedthumb {
+  margin: 0 1px 0 40px;
+  float: left;
+  border: 1px solid #e5e5e5;
+}
+.relatedthumb img {
+  margin: 0 0 3px 0;
+  padding: 0;
+}
+.relatedthumb a {
+  color :#333;
+  text-decoration: none;
+  display:block;
+  padding: 4px;
+  width: 150px;
+}
+.relatedthumb:hover {
+  background-color: #f1f1f1;
+  color: #000;
+}
+.relatedthumb .relatedthumb-title {
+  font-weight: bold;
+  font-style:normal;
+  line-height: 1.3em;
+}
 
 /*------------------instagram-area start------------------*/
 .instagram-area {
@@ -1165,7 +1194,6 @@ footer {
 .widget_categories ul li a:before {
     position: absolute;
     left: 0;
-    content: "\f054";
     top: 0;
     font-family: fontawesome;
     font-size: 8px;

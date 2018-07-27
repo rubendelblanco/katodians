@@ -123,13 +123,13 @@ add_action( 'widgets_init', 'katodians_widgets_init' );
  */
 function katodians_scripts() {
 	wp_enqueue_style( 'bootstrap-min', get_template_directory_uri() . '/css/bootstrap.min.css',false,'4.0','all');
-	wp_enqueue_style( 'katodians-style', get_stylesheet_uri() );
 	wp_enqueue_style( 'responsive', get_template_directory_uri() . '/css/responsive.css',false,'1.0','all');
 	wp_enqueue_style( 'slicknav', get_template_directory_uri() . '/css/slicknav.min.css',false,'1.0','all');
 
-	if (!is_front_page())
+	if (!is_home())
 		wp_enqueue_style( 'sidebar-right', get_template_directory_uri() . '/css/sidebar-content.css',false,'1.0','all');
 	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/fontawesome-all.min.css',false,'1.0','all');
+	wp_enqueue_style( 'katodians-style', get_stylesheet_uri() );
 
 	wp_deregister_script( 'jquery' );
     // Change the URL if you want to load a local copy of jQuery from your own server.

@@ -10,7 +10,6 @@
 * returns related posts by tag
 */
  function get_related_posts(){
-  //$orig_post = $post;
   global $post;
   $tags = wp_get_post_tags($post->ID);
 
@@ -29,10 +28,12 @@
   while( $my_query->have_posts() ) :
     $my_query->the_post();
   ?>
-  <div class="col-sm">
+  <div class="col-m">
     <div class="relatedthumb">
-      <a rel="external" href="<?php the_permalink()?>"><?php the_post_thumbnail(array(150, 150)); ?><br />
-      <?php the_title(); ?>
+      <div class="relatedthumb-thumb">
+      <a rel="external" href="<?php the_permalink()?>"><?php the_post_thumbnail(array(150, 150)); ?>
+      </div>
+      <div class="relatedthumb-title"><?php the_title(); ?></div>
       </a>
     </div>
   </div>
@@ -40,7 +41,6 @@
   <?php
       endwhile;
   endif;
-  //$post = $orig_post;
   wp_reset_query();
 }
 
