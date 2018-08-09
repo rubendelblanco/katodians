@@ -10,48 +10,71 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
-
-		<?php
-		if ( have_posts() ) : ?>
-
-			<header class="page-header">
+			<div class="container">
+			<div class="row">
 				<?php
-					if ( is_sticky()):
-						echo '<div class="featured-sticky">'.__('FEATURED').'</div>';
-					endif;
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="archive-description">', '</div>' );
+				if (!wp_is_mobile()):
 				?>
-			</header><!-- .page-header -->
+				<aside id="secondary" class="col-lg-3 col-md-3 col-sm-12">
+				<?php
+				get_sidebar();
+				?>
+				</aside>
+				<?php
+				endif;
+				?>
+				<div class="col-md-9 col-12">
+				<?php if ( have_posts() ) : ?>
+					<div class="col-12">
+						<header class="page-header">
+							<?php
+								if ( is_sticky()):
+									echo '<div class="featured-sticky">'.__('FEATURED').'</div>';
+								endif;
+								the_archive_title( '<h1 class="page-title">', '</h1>' );
+								the_archive_description( '<div class="archive-description">', '</div>' );
+							?>
+						</header><!-- .page-header -->
+					</div>
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+						<?php
+						/* Start the Loop */
+						while ( have_posts() ) : the_post();
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
+							/*
+							 * Include the Post-Format-specific template for the content.
+							 * If you want to override this in a child theme, then include a file
+							 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+							 */
+							get_template_part( 'template-parts/content', get_post_format() );
 
-			endwhile;
+						endwhile;
 
-			the_posts_pagination( array( 'mid_size' => 2,
-				'prev_text' => __( '<<', 'textdomain' ),
-				'next_text' => __( '>>', 'textdomain' ),
-				'screen_reader_text' => ' ' ) );
+						the_posts_pagination( array( 'mid_size' => 2,
+							'prev_text' => __( '<<', 'textdomain' ),
+							'next_text' => __( '>>', 'textdomain' ),
+							'screen_reader_text' => ' ' ) );
 
-		else :
+					else :
 
-			get_template_part( 'template-parts/content', 'none' );
+						get_template_part( 'template-parts/content', 'none' );
 
-		endif; ?>
-
-		</main><!-- #main -->
+					endif; ?>
+				</div>
+				<?php
+				if (wp_is_mobile()):
+				?>
+				<aside id="secondary" class="col-lg-3 col-md-3 col-sm-12">
+				<?php
+				get_sidebar();
+				?>
+				</aside>
+				<?php
+				endif;
+				?>
+			</div>
+			</div>
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();

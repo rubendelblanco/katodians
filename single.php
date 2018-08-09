@@ -11,7 +11,15 @@ get_header(); ?>
 <div class="container">
 	<div class="row">
 		<?php
-		if (!wp_is_mobile()) get_sidebar();
+		if (!wp_is_mobile()):
+		?>
+		<aside id="secondary" class="col-lg-3 col-md-3 col-sm-12">
+		<?php
+		get_sidebar();
+		?>
+		</aside>
+		<?php
+		endif;
 		?>
 		<div id="primary" class="content-area">
 			<main id="main" class="site-main">
@@ -49,9 +57,17 @@ get_header(); ?>
 			</main><!-- #main -->
 		</div><!-- #primary -->
 
-	<?php
-	if (wp_is_mobile()) get_sidebar();
-	?>
+		<?php
+		if (wp_is_mobile()):
+		?>
+		<aside id="secondary" class="col-lg-3 col-md-3 col-sm-12">
+		<?php
+		get_sidebar();
+		?>
+		</aside>
+		<?php
+		endif;
+		?>
 	</div>
 </div>
 <?php

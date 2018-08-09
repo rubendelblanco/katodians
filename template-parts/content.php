@@ -33,6 +33,12 @@
 				endif; ?>
 			</header><!-- .entry-header -->
 
+			<div class="entry-content-excerpt">
+				<?php
+					echo the_excerpt();
+				?>
+			</div>
+
 			<div class="entry-content-no-border">
 				<?php
 					wp_link_pages( array(

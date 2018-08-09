@@ -752,6 +752,9 @@ header.post-content-single .entry-title, header.post-content-single .entry-meta{
     color: #ffffff;
     border-radius: 40%;
 }
+.entry-content-excerpt{
+  margin: 5px 15px 5px 15px;
+}
 
 /*------------------post-area end------------------*/
 
@@ -1185,7 +1188,6 @@ footer {
 }
 .widget_categories ul li a {
     position: relative;
-    padding-left: 20px;
     display: block;
 }
 .widget_categories ul li:hover a {

@@ -146,12 +146,16 @@ function katodians_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	//add thickbox for images
-	//add_thickbox();
 }
 add_action( 'wp_enqueue_scripts', 'katodians_scripts' );
 
-
+/**
+* Customize excerpt word length
+*/
+function custom_excerpt_length( $length ) {
+	return 50;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
 /**
  * Implement the Custom Header feature.
