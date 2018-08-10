@@ -16,6 +16,7 @@ if ( ! function_exists( 'katodians_setup' ) ) :
 	 * as indicating support for post thumbnails.
 	 */
 	function katodians_setup() {
+
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
@@ -181,6 +182,11 @@ require get_template_directory() . '/inc/customizer.php';
  * Related posts functions.
  */
 require get_template_directory() . '/inc/related-posts.php';
+
+/**
+ * Implement the Custom Post Types.
+ */
+require get_template_directory() . '/inc/post-types.php';
 
 /**
  * Load Jetpack compatibility file.
