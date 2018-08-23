@@ -9,6 +9,7 @@
 
 get_header(); ?>
 <div class="container">
+	<?php echo the_breadcrumb(); ?>
 	<div class="row">
 		<?php
 		if (!wp_is_mobile()):

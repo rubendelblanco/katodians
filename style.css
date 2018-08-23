@@ -707,6 +707,9 @@ header.post-content-single{
 header.post-content-single .entry-title, header.post-content-single .entry-meta{
     text-align: center;
 }
+header.page-header .page-title{
+  margin: 1% 0 3% 0;
+}
 .post-content {
     position: relative;
     overflow: hidden;
@@ -762,7 +765,7 @@ header.post-content-single .entry-title, header.post-content-single .entry-meta{
 
 .featured-sticky{
   margin-top: -15px;
-  width: 25%;
+  width: 40%;
 }
 .featured-sticky span{
   background-color: #B22222;

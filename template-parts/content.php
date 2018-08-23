@@ -32,7 +32,6 @@
 				<?php
 				endif; ?>
 			</header><!-- .entry-header -->
-
 			<div class="entry-content-excerpt">
 				<?php
 					echo the_excerpt();
@@ -47,7 +46,6 @@
 					) );
 				?>
 			</div><!-- .entry-content -->
-
 		</article><!-- #post-<?php the_ID(); ?> -->
 	</div>
 </div>

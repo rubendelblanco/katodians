@@ -150,6 +150,15 @@ function katodians_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'katodians_scripts' );
 
+$taxonomy = 'category'; // you will probably need to change this
+$field = 'description';
+function action_taxonomy_pre_add_form( $taxonomy ) {
+    echo 'ñlfkasñfk';
+};
+
+// add the action
+add_action( "pre_{$taxonomy}_{$field}", 'action_taxonomy_pre_add_form', 10, 1 );
+
 /**
 * Customize excerpt word length
 */
@@ -157,6 +166,28 @@ function custom_excerpt_length( $length ) {
 	return 50;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
+/**
+* Erase 'category:' from category title
+* https://gretathemes.com/guides/remove-category-title-category-pages/
+*/
+function prefix_category_title( $title ) {
+    if ( is_category() ) {
+        $title = single_cat_title( '', false );
+    }
+    return $title;
+}
+add_filter( 'get_the_archive_title', 'prefix_category_title' );
+
+/**
+* get breadcrumbs
+*/
+require get_template_directory() . '/inc/breadcrumb.php';
+
+/**
+ * Extends category admin page.
+ */
+require get_template_directory() . '/inc/admin-categories.php';
 
 /**
  * Implement the Custom Header feature.
