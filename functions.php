@@ -149,7 +149,7 @@ function katodians_scripts() {
 
 }
 add_action( 'wp_enqueue_scripts', 'katodians_scripts' );
-
+/*
 $taxonomy = 'category'; // you will probably need to change this
 $field = 'description';
 function action_taxonomy_pre_add_form( $taxonomy ) {
@@ -157,7 +157,7 @@ function action_taxonomy_pre_add_form( $taxonomy ) {
 };
 
 // add the action
-add_action( "pre_{$taxonomy}_{$field}", 'action_taxonomy_pre_add_form', 10, 1 );
+add_action( "pre_{$taxonomy}_{$field}", 'action_taxonomy_pre_add_form', 10, 1 );*/
 
 /**
 * Customize excerpt word length

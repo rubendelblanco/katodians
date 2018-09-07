@@ -25,6 +25,14 @@
 				</div><!-- .entry-meta -->
 				<?php
 				endif; ?>
+				<?php if(function_exists('the_ratings')): ?>
+				<div class="entry-ratings">
+					<?php
+					//wp-postratings plugin
+					the_ratings();
+					?>
+				</div>
+			<?php endif; ?>
 			</header><!-- .entry-header -->
 
 			<div class="entry-content">

@@ -37,7 +37,10 @@
 					echo the_excerpt();
 				?>
 			</div>
-
+			<?php
+			//wp-postratings plugin
+			if(function_exists('the_ratings')) { the_ratings(); }
+			?>
 			<div class="entry-content-no-border">
 				<?php
 					wp_link_pages( array(
