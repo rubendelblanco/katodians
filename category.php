@@ -7,7 +7,11 @@
  * @package katodians
  */
 
-get_header();?>
+get_header();
+$current_cat = get_queried_object();
+$category_images = get_option( 'category_images' );
+$current_cat_img = $category_images[$current_cat->cat_ID];
+?>
 
 	<div id="primary" class="content-area">
 			<div class="container">
@@ -22,11 +26,13 @@ get_header();?>
 								?>
 							</header><!-- .page-header -->
 							<div class="row">
-								<div class="col-6">
-									<?php the_archive_description( '<div class="archive-description">', '</div>' ); ?>
+								<div class="col-md-12 col-lg-6">
+									<?php the_archive_description( '<div class="cat-text">', '</div>' ); ?>
 								</div>
-								<div class="col-6">
-									<?php the_archive_description( '<div class="archive-description">', '</div>' ); ?>
+								<div class="col-md-12 col-lg-6">
+									<div class="cat-image">
+										<img src="<?php  echo $current_cat_img; ?>">
+									</div>
 								</div>
 							</div>
 						</div>
