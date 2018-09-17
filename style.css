@@ -267,6 +267,22 @@ pre {
 	white-space: pre-wrap;
 }
 
+.katodian-msg:before{
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  content: '';
+  font-family: 'Font Awesome';
+  font-size: 20px;
+  margin-top: -10px;
+  line-height: 1;
+  content: '\f05a';
+}
+
+.katodian-msg{
+  padding-left: 60px;
+}
 /*------------------header-area start------------------*/
 .header-top {
     padding: 15px 0px;

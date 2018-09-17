@@ -1,4 +1,8 @@
 <?php
+/*
+admin-terms.php
+Allows to attach a featured image to taxonomies
+*/
 function katodians_terms_extension() {
 
   if (!isset($_GET['taxonomy']) and !isset($_POST['taxonomy'])) return;

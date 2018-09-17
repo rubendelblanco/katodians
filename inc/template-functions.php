@@ -45,3 +45,52 @@ function katodians_filter_post_thumbnail_html( $html ) {
     return $html;
 }
 add_filter( 'post_thumbnail_html', 'katodians_filter_post_thumbnail_html' );
+
+/**
+* Customizing admin WYSIWYG
+*/
+function add_style_select_button($buttons) {
+	array_unshift($buttons, 'styleselect');
+	return $buttons;
+}
+add_filter('mce_buttons_2', 'add_style_select_button');
+
+// add custom styles to the WordPress editor
+
+function katodians_wysiwyg_insert_formats( $init_array ) {
+
+$style_formats = array(
+	// These are the custom styles
+	array(
+		'title' => 'Info',
+		'inline' => 'div',
+		'classes' => 'katodian-msg alert alert-info',
+		'wrapper' => true,
+	),
+	array(
+		'title' => 'Success',
+		'block' => 'div',
+		'classes' => 'katodian-msg alert alert-success',
+		'wrapper' => true,
+	),
+	array(
+		'title' => 'Warning',
+		'block' => 'div',
+		'classes' => 'katodian-msg alert alert-warning',
+		'wrapper' => true,
+	),
+	array(
+		'title' => 'Danger',
+		'block' => 'div',
+		'classes' => 'katodian-msg alert alert-danger',
+		'wrapper' => true,
+	),
+);
+// Insert the array, JSON ENCODED, into 'style_formats'
+$init_array['style_formats'] = json_encode( $style_formats );
+
+return $init_array;
+
+}
+// Attach callback to 'tiny_mce_before_init'
+add_filter( 'tiny_mce_before_init', 'katodians_wysiwyg_insert_formats' );

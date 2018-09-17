@@ -9,7 +9,7 @@
 
 get_header();
 $current_cat = get_queried_object();
-$category_images = get_option( 'category_images' );
+$category_images = get_option( 'category_term_images' );
 $current_cat_img = $category_images[$current_cat->cat_ID];
 ?>
 
