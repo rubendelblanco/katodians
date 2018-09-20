@@ -151,6 +151,16 @@ function katodians_scripts() {
 add_action( 'wp_enqueue_scripts', 'katodians_scripts' );
 
 /**
+* Enqueue scripts and styles in admin panel.
+*/
+function katodians_admin_scripts(){
+	  wp_enqueue_style( 'admin-style', get_template_directory_uri() . '/css/admin-style.css',false,'1.0','all');
+		wp_enqueue_script( 'katodians-admin-scripts', get_template_directory_uri() . '/js/admin-scripts.js', array(), '20180919', false );
+}
+
+add_action('admin_head', 'katodians_admin_scripts');
+
+/**
 * Customize excerpt word length
 */
 function custom_excerpt_length( $length ) {
@@ -174,11 +184,6 @@ add_filter( 'get_the_archive_title', 'prefix_category_title' );
 * get breadcrumbs
 */
 require get_template_directory() . '/inc/breadcrumb.php';
-
-/**
- * Extends category admin page.
- */
-require get_template_directory() . '/inc/admin-terms.php';
 
 /**
  * Implement the Custom Header feature.

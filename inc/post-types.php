@@ -8,7 +8,7 @@
 */
 // Register Custom Post Type Project
 // Post Type Key: project
-function create_project_cpt() {
+function katodians_create_project_cpt() {
 
 	$labels = array(
 		'name' => __( 'Projects', 'Post Type General Name', 'kat-project' ),
@@ -63,11 +63,11 @@ function create_project_cpt() {
 	register_post_type( 'project', $args );
 
 }
-add_action( 'init', 'create_project_cpt', 0 );
+add_action( 'init', 'katodians_create_project_cpt', 0 );
 
 // Register Custom Post Type Web Tool
 // Post Type Key: webtool
-function create_webtool_cpt() {
+function katodians_create_webtool_cpt() {
 
 	$labels = array(
 		'name' => __( 'Web Tools', 'Post Type General Name', 'kat-tools' ),
@@ -122,6 +122,39 @@ function create_webtool_cpt() {
 	register_post_type( 'webtool', $args );
 
 }
-add_action( 'init', 'create_webtool_cpt', 0 );
+add_action( 'init', 'katodians_create_webtool_cpt', 0 );
 
+// custom meta boxes for web tools and projects
+
+add_action( 'add_meta_boxes', 'katodians_meta_boxes' );
+
+function katodians_meta_boxes() {
+    add_meta_box( 'katodians-progress-meta-box', __( 'Progreso del proyecto', 'katodians_progress_textdomain' ), 'katodians_meta_box_callback', ['webtool','project'] );
+}
+
+function katodians_meta_box_callback( $post ) {
+	 wp_nonce_field( 'katodians_progress_meta_box', 'katodians_meta_box_nonce' );
+	 $post_meta = get_post_custom( $post->ID );
+	 $value = esc_attr( get_post_meta( $post->ID, 'progress_bar', true ) );
+	 if ( $value == null ) $value = 0;
+	?>
+	<div class="slidecontainer">
+		<div id="progress-percentage"></div>
+		<input type="range" name="progress_bar" min="0" max="100" value="<?php print_r ($value)?>" step="5" class="slider" id="range">
+	</div>
+<?php
+}
+
+add_action( 'save_post', 'katodians_save_custom_fields', 10, 2 );
+
+function katodians_save_custom_fields( $post_id, $post ){
+		//nonce check
+    if ( ! isset( $_POST['katodians_meta_box_nonce'] ) || ! wp_verify_nonce( $_POST['katodians_meta_box_nonce'], 'katodians_progress_meta_box' ) ) {
+        return;
+    }
+
+		if( isset( $_POST['progress_bar'] ) && $_POST['progress_bar'] != "" ) {
+        update_post_meta( $post_id, 'progress_bar', $_POST['progress_bar'] );
+    }
+}
  ?>

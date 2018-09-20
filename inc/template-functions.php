@@ -11,6 +11,7 @@
  * @param array $classes Classes for the body element.
  * @return array
  */
+
 function katodians_body_classes( $classes ) {
 	// Adds a class of hfeed to non-singular pages.
 	if ( ! is_singular() ) {
@@ -94,3 +95,8 @@ return $init_array;
 }
 // Attach callback to 'tiny_mce_before_init'
 add_filter( 'tiny_mce_before_init', 'katodians_wysiwyg_insert_formats' );
+
+/**
+ * Extends category admin page.
+ */
+require get_template_directory() . '/inc/admin-terms.php';
