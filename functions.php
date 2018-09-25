@@ -180,6 +180,7 @@ function prefix_category_title( $title ) {
 }
 add_filter( 'get_the_archive_title', 'prefix_category_title' );
 
+
 /**
 * get breadcrumbs
 */
