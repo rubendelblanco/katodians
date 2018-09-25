@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying category pages
+ * The template for displaying tag pages
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -9,7 +9,7 @@
 
 get_header();
 $current_cat = get_queried_object();
-$category_images = get_option( 'category_term_images' );
+$category_images = get_option( 'tag_term_images' );
 $current_cat_img = $category_images[$current_cat->cat_ID];
 ?>
 

@@ -169,16 +169,25 @@ function custom_excerpt_length( $length ) {
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
 /**
-* Erase 'category:' from category title
+* Erase 'category:','archive:','tag:' from archive titles
 * https://gretathemes.com/guides/remove-category-title-category-pages/
 */
-function prefix_category_title( $title ) {
+function prefix_archive_title( $title ) {
     if ( is_category() ) {
         $title = single_cat_title( '', false );
     }
+		elseif ( is_tag() ) {
+
+    	$title = single_tag_title( '', false );
+
+    } elseif ( is_author() ) {
+
+      $title = '<span class="vcard">' . get_the_author() . '</span>' ;
+
+    }
     return $title;
 }
-add_filter( 'get_the_archive_title', 'prefix_category_title' );
+add_filter( 'get_the_archive_title', 'prefix_archive_title' );
 
 
 /**
