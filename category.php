@@ -40,18 +40,7 @@ $current_cat_img = $category_images[$current_cat->cat_ID];
 			<?php endif; ?>
 			</div>
 			<div class="row">
-				<?php
-				if (!wp_is_mobile()):
-				?>
-				<aside id="secondary" class="col-lg-3 col-md-3 col-sm-12">
-				<?php
-				get_sidebar();
-				?>
-				</aside>
-				<?php
-				endif;
-				?>
-				<div class="col-md-9 col-12">
+				<div class="col-12">
 				<?php if ( have_posts() ) : ?>
 
 						<?php
@@ -74,6 +63,8 @@ $current_cat_img = $category_images[$current_cat->cat_ID];
 							}
 						endwhile;
 
+						if ($counter !=0) echo '</div>';
+						
 						the_posts_pagination( array( 'mid_size' => 2,
 							'prev_text' => __( '<<', 'textdomain' ),
 							'next_text' => __( '>>', 'textdomain' ),
@@ -83,17 +74,6 @@ $current_cat_img = $category_images[$current_cat->cat_ID];
 						get_template_part( 'template-parts/content', 'none' );
 					endif; ?>
 				</div>
-				<?php
-				if (wp_is_mobile()):
-				?>
-				<aside id="secondary" class="col-lg-3 col-md-3 col-sm-12">
-				<?php
-				get_sidebar();
-				?>
-				</aside>
-				<?php
-				endif;
-				?>
 			</div>
 			</div>
 	</div><!-- #primary -->

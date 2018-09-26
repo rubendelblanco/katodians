@@ -19,7 +19,7 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
-*/
+
 CSS INDEX
     ===================
 
@@ -1024,7 +1024,7 @@ p img.alignright, p img.alignleft {margin-top:0;}
 /*---------------- related posts end --------------------*/
 
 /*---------------- category page start ------------------*/
-.category-description{
+.category-description, .author-description{
   margin: 1em 0 3em 0;
   background-color: #e9ecef;
   padding: 2em;
