@@ -714,6 +714,12 @@
     .featured-content p {
         line-height: 15px;
     }
+
+    .author-image{
+      position: relative;
+      left: 30%;
+      margin-bottom: 10px;
+    }
 }
 
 
