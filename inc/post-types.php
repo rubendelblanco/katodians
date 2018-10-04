@@ -140,7 +140,7 @@ function katodians_meta_box_callback( $post ) {
 	?>
 	<div class="slidecontainer">
 		<div id="progress-percentage"></div>
-		<input type="range" name="progress_bar" min="0" max="100" value="<?php print_r ($value)?>" step="5" class="slider" id="range">
+		<input type="range" name="progress_bar" min="0" max="100" value="<?php print_r ($value)?>" step="10" class="slider" id="range">
 	</div>
 <?php
 }

@@ -97,8 +97,12 @@
 }
 
 
-
-
+@media (max-width: 1024px){
+    .project-img{
+      float: inherit!important;
+      margin-right: 0!important;
+    }
+}
 
 
 
