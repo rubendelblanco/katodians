@@ -2039,6 +2039,17 @@ a#cancel-comment-reply-link:hover
 .form-submit input:hover {
     background: #ff9000;
 }
+.status-project{
+  text-align: center;
+  font-size: larger;
+  font-style: oblique;
+}
+.status-project span{
+  display: inline;
+  text-align: center;
+  font-size: larger;
+  font-weight: bold;
+}
 
 /*=====================================================
                 faq-area page start

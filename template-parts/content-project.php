@@ -31,9 +31,11 @@ $progress = get_post_meta(get_the_ID(), 'progress_bar', true);
 				<?php
 				endif; ?>
 			</header><!-- .entry-header -->
-			<div class="project-img">
-					<?php the_post_thumbnail('large'); ?>
-      </div>
+			<a href="<?php echo esc_url( get_permalink() ) ?>">
+				<div class="project-img">
+						<?php the_post_thumbnail('large'); ?>
+	      </div>
+			</a>
 			<div class="progress" data-percentage="<?php echo $progress;?>">
 			  <span class="progress-left">
 			    <span class="progress-bar"></span>
