@@ -7,6 +7,10 @@
     .featured-content {
         width: 85%;
     }
+
+    #content{
+      min-height: 800px;
+    }
 }
 
 
@@ -94,6 +98,9 @@
     .header-area3 .mainmenu ul li {
         margin-left: 14px;
     }
+    #content{
+      min-height: 1000px;
+    }
 }
 
 
@@ -101,6 +108,10 @@
     .project-img{
       float: inherit!important;
       margin-right: 0!important;
+    }
+
+    #content{
+      min-height: 1000px;
     }
 }
 
@@ -262,6 +273,9 @@
     }
     .header-area3 .logo {
         padding: 28px 0;
+    }
+    #content{
+      min-height: 800px;
     }
 }
 
