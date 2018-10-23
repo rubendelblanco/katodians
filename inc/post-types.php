@@ -103,7 +103,7 @@ function katodians_create_webtool_cpt() {
 		'description' => __( 'Your web tools portfolio', 'kat-tools' ),
 		'labels' => $labels,
 		'menu_icon' => 'dashicons-admin-tools',
-		'supports' => array('title', 'editor', 'excerpt', 'thumbnail', 'custom-fields', ),
+		'supports' => array('title', 'editor', 'thumbnail', 'custom-fields', ),
 		'taxonomies' => array(),
 		'public' => true,
 		'show_ui' => true,
@@ -129,32 +129,72 @@ add_action( 'init', 'katodians_create_webtool_cpt', 0 );
 add_action( 'add_meta_boxes', 'katodians_meta_boxes' );
 
 function katodians_meta_boxes() {
-    add_meta_box( 'katodians-progress-meta-box', __( 'Progreso del proyecto', 'katodians_progress_textdomain' ), 'katodians_meta_box_callback', ['webtool','project'] );
+    add_meta_box( 'katodians-progress-meta-box', __( 'Progreso del proyecto', 'katodians_progress_textdomain' ), 'katodians_progress_meta_box_callback', ['project'] );
+		add_meta_box( 'katodians-url-web', __('Enlace de la web', 'katodians_url_textdomain'), 'katodians_url_meta_box_callback', ['webtool']);
 }
 
-function katodians_meta_box_callback( $post ) {
-	 wp_nonce_field( 'katodians_progress_meta_box', 'katodians_meta_box_nonce' );
+function katodians_progress_meta_box_callback( $post ) {
+	 wp_nonce_field( 'katodians_progress_meta_box', 'katodians_meta_box_nonce_progress' );
 	 $post_meta = get_post_custom( $post->ID );
-	 $value = esc_attr( get_post_meta( $post->ID, 'progress_bar', true ) );
+	 $value = esc_attr( get_post_meta( $post->ID, 'ktds_progress_bar', true ) );
 	 if ( $value == null ) $value = 0;
 	?>
 	<div class="slidecontainer">
 		<div id="progress-percentage"></div>
-		<input type="range" name="progress_bar" min="0" max="100" value="<?php print_r ($value)?>" step="10" class="slider" id="range">
+		<input type="range" name="ktds_progress_bar" min="0" max="100" value="<?php echo $value ?>" step="10" class="slider" id="range">
 	</div>
 <?php
 }
 
-add_action( 'save_post', 'katodians_save_custom_fields', 10, 2 );
+function katodians_url_meta_box_callback( $post ){
+	wp_nonce_field( 'katodians_url_meta_box', 'katodians_meta_box_nonce_url' );
+	$post_meta = get_post_custom( $post->ID );
+	$value = esc_attr( get_post_meta( $post->ID, 'ktds_url_web', true ) );
+	if ( $value == null ) $value = '';
+	?>
+	<div class="ktds-web-url">
+		<span class="dashicons dashicons-admin-links" style="margin: 4px 4px 0 4px"></span>
+		<input type="text" name="ktds_url_web" size="100" value="<?php echo $value ?>">
+	</div>
+	<?php
+}
 
-function katodians_save_custom_fields( $post_id, $post ){
+add_action( 'save_post', 'katodians_save_custom_fields_progress', 10, 2 );
+add_action( 'save_post', 'katodians_save_custom_fields_url', 10, 2 );
+
+//save progress bar value
+function katodians_save_custom_fields_progress( $post_id, $post ){
 		//nonce check
-    if ( ! isset( $_POST['katodians_meta_box_nonce'] ) || ! wp_verify_nonce( $_POST['katodians_meta_box_nonce'], 'katodians_progress_meta_box' ) ) {
+    if ( ! isset( $_POST['katodians_meta_box_nonce_progress'] ) || ! wp_verify_nonce( $_POST['katodians_meta_box_nonce_progress'], 'katodians_progress_meta_box' ) ) {
         return;
     }
 
-		if( isset( $_POST['progress_bar'] ) && $_POST['progress_bar'] != "" ) {
-        update_post_meta( $post_id, 'progress_bar', $_POST['progress_bar'] );
+		if ( isset( $_POST['ktds_progress_bar'] ) && $_POST['ktds_progress_bar'] != "" ) {
+        update_post_meta( $post_id, 'ktds_progress_bar', $_POST['ktds_progress_bar'] );
     }
 }
+
+//save webtool url
+function katodians_save_custom_fields_url( $post_id, $post ){
+	//nonce check
+	if ( ! isset( $_POST['katodians_meta_box_nonce_url'] ) || ! wp_verify_nonce( $_POST['katodians_meta_box_nonce_url'], 'katodians_url_meta_box' ) ) {
+			return;
+	}
+
+	if ( isset( $_POST['ktds_url_web'] ) && $_POST['ktds_url_web'] != "" ) {
+
+		// Remove all illegal characters from a url
+		$url = filter_var($_POST['ktds_url_web'], FILTER_SANITIZE_URL);
+		//validate URL
+		if (!filter_var($url, FILTER_VALIDATE_URL)) {
+	    return;
+		}
+		else{
+			update_post_meta( $post_id, 'ktds_url_web', $_POST['ktds_url_web'] );
+		}
+
+	}
+}
+
+
  ?>
