@@ -22,7 +22,9 @@ function katodians_terms_extension() {
 add_action('init', 'katodians_terms_extension');
 
 function katodians_add_image_term($term){
-   if (!isset($_GET['taxonomy'])) return;
+   $param = $_GET['taxonomy'];
+
+   if (!isset($param) or ($param != 'post_tag' and $param != 'category')) return;
    $taxonomy = sanitize_text_field( $_GET['taxonomy'] );
    $term_images = get_option( $taxonomy.'_term_images' );
    $term_image = '';

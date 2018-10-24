@@ -45,3 +45,8 @@
 .slider:hover {
     opacity: 1; /* Fully shown on mouse-over */
 }
+
+/*description in taxonomy traits*/
+body.taxonomy-katodians_trait .term-description-wrap {
+  display:none;
+}

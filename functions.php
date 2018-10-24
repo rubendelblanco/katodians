@@ -226,6 +226,11 @@ require get_template_directory() . '/inc/related-posts.php';
 require get_template_directory() . '/inc/post-types.php';
 
 /**
+*  Implement custom taxonomies
+*/
+require get_template_directory() . '/inc/taxonomies.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
