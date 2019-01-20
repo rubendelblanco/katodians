@@ -27,10 +27,17 @@ get_header(); ?>
 							</div>
 						</div>
 						<?php
-							// only if wp-postraintgs is installed and active
+							// only if wp-postratings is installed and active
 							if(in_array('wp-postratings/wp-postratings.php', apply_filters('active_plugins', get_option('active_plugins')))){
-								echo '<h3>'.__('Posts más valorados').'</h3>';
-								get_template_part( 'template-parts/content-postratings', 'none' );
+								$posts = katodians_get_highest_rated ('post',0,4,0,true);
+								
+								if (count($posts) > 0) { 
+									echo '<h3>'.__('Posts más valorados').'</h3>';
+									echo '<div class="row">';
+									foreach ($posts as $post)
+									get_template_part( 'template-parts/content-postratings', 'none' );
+									echo '</div>';
+								}
 							}
 
 							$args = array(
@@ -44,12 +51,14 @@ get_header(); ?>
 								'suppress_filters' => true
 							);
 
-							$recent_posts = wp_get_recent_posts( $args, ARRAY_A );
+							$posts = wp_get_recent_posts( $args, ARRAY_A );
 							echo '<h3>'.__('Posts más recientes').'</h3>';
 							echo '<div class="row">';
-							foreach ($recent_posts as $post) {
+				
+							foreach ($posts as $post) {
 								get_template_part( 'template-parts/content-lite', 'none' );
 							}
+
 							echo '</div>';
 						?>
 				</div><!-- .page-content -->
