@@ -8,7 +8,7 @@
  * @since 0.8.0
  */
 
-$progress = get_post_meta(get_the_ID(), 'progress_bar', true);
+$progress = get_post_meta(get_the_ID(), 'ktds_progress_bar', true);
 ?>
 <div class="col-md-6 col-12">
 	<div class="post-wrap">
