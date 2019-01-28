@@ -735,7 +735,7 @@ header.entry-title, header .entry-title{
   word-break: break-word;
 }
 header.page-header .page-title{
-  margin: 1% 0 3% 0;
+  margin: 1% 0 1% 0;
 }
 .post-content {
     position: relative;
@@ -1038,7 +1038,7 @@ p img.alignright, p img.alignleft {margin-top:0;}
 }
 
 .category-description .cat-text p{
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 .cat-image{

@@ -23,13 +23,16 @@ add_action('init', 'katodians_terms_extension');
 
 function katodians_add_image_term($term){
    $param = $_GET['taxonomy'];
+   
+   if (isset($_GET['tag_ID']))
+     $param_tag = $_GET['tag_ID'];
 
    if (!isset($param) or ($param != 'post_tag' and $param != 'category')) return;
-   $taxonomy = sanitize_text_field( $_GET['taxonomy'] );
+   $taxonomy = sanitize_text_field( $param );
    $term_images = get_option( $taxonomy.'_term_images' );
    $term_image = '';
-     if ( is_array( $term_images ) && array_key_exists( $term->term_id, $term_images ) ) {
-       $term_image = $term_images[$term->term_id] ;
+     if ( is_array( $term_images ) && isset($param_tag) && array_key_exists( $param_tag, $term_images ) ) {
+       $term_image = $term_images[$param_tag] ;
      }
    ?>
    <tr>

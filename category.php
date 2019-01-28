@@ -9,8 +9,11 @@
 
 get_header();
 $current_cat = get_queried_object();
-$category_images = get_option( 'category_term_images' );
-$current_cat_img = $category_images[$current_cat->cat_ID];
+
+if (!get_option( 'category_term_images' )){
+	$category_images = get_option( 'category_term_images' );
+	$current_cat_img = $category_images[$current_cat->cat_ID];
+}
 ?>
 
 	<div id="primary" class="content-area">
@@ -26,6 +29,7 @@ $current_cat_img = $category_images[$current_cat->cat_ID];
 								?>
 							</header><!-- .page-header -->
 							<div class="row">
+								<?php if (isset($current_cat_img)): ?>
 								<div class="col-md-12 col-lg-6">
 									<?php the_archive_description( '<div class="cat-text">', '</div>' ); ?>
 								</div>
@@ -34,6 +38,11 @@ $current_cat_img = $category_images[$current_cat->cat_ID];
 										<img src="<?php  echo $current_cat_img; ?>">
 									</div>
 								</div>
+								<?php else: ?>
+								<div class="col-md-12 col-lg-12">
+									<?php the_archive_description( '<div class="cat-text">', '</div>' ); ?>
+								</div>
+								<?php endif; ?>
 							</div>
 						</div>
 				</div>
