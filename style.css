@@ -788,6 +788,13 @@ header.page-header .page-title{
 .entry-content-excerpt.project{
   clear:both!important;
 }
+.entry-content a {
+    color: #007fac;
+    text-decoration: underline;
+}
+.entry-content a:hover {
+    color: #f47e00;
+}
 
 /*------------------post-area end------------------*/
 
